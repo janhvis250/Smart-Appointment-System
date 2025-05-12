@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 79 70 229;
+    --color-primary-light: 129 140 248;
+    --color-primary-dark: 67 56 202;
+    
+    --color-secondary: 13 148 136;
+    --color-secondary-light: 45 212 191;
+    --color-secondary-dark: 15 118 110;
+    
+    --color-accent: 236 72 153;
+    --color-accent-light: 244 114 182;
+    --color-accent-dark: 219 39 119;
+    
+    --color-success: 34 197 94;
+    --color-warning: 245 158 11;
+    --color-error: 239 68 68;
+  }
+  
+  body {
+    @apply text-gray-800 antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold leading-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent 
+           text-sm font-medium rounded-md shadow-sm focus:outline-none 
+           focus:ring-2 focus:ring-offset-2 transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 focus:ring-indigo-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-teal-600 text-white hover:bg-teal-700 focus:ring-teal-500;
+  }
+  
+  .btn-accent {
+    @apply bg-pink-600 text-white hover:bg-pink-700 focus:ring-pink-500;
+  }
+  
+  .btn-outline {
+    @apply bg-white text-gray-700 border-gray-300 hover:bg-gray-50 focus:ring-indigo-500;
+  }
+  
+  .btn-success {
+    @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+  }
+  
+  .btn-warning {
+    @apply bg-amber-600 text-white hover:bg-amber-700 focus:ring-amber-500;
+  }
+  
+  .btn-error {
+    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  
+  .form-input {
+    @apply block w-full rounded-md border-gray-300 shadow-sm 
+          focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 mb-1;
+  }
+  
+  .form-error {
+    @apply mt-1 text-sm text-red-600;
+  }
+  
+  .card {
+    @apply bg-white shadow rounded-lg overflow-hidden;
+  }
+  
+  .appointment-card {
+    @apply card border-l-4 transition-all duration-200 hover:shadow-md;
+  }
+  
+  .appointment-card-pending {
+    @apply border-amber-500;
+  }
+  
+  .appointment-card-confirmed {
+    @apply border-green-500;
+  }
+  
+  .appointment-card-completed {
+    @apply border-indigo-500;
+  }
+  
+  .appointment-card-cancelled {
+    @apply border-red-500;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Calendar styling */
+.calendar-day {
+  @apply flex items-center justify-center h-10 w-10 rounded-full cursor-pointer transition-all;
+}
+
+.calendar-day-available {
+  @apply hover:bg-indigo-100 hover:text-indigo-700;
+}
+
+.calendar-day-selected {
+  @apply bg-indigo-600 text-white font-medium;
+}
+
+.calendar-day-unavailable {
+  @apply text-gray-300 cursor-not-allowed;
+}
